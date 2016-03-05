@@ -1,3 +1,6 @@
+<script>alert("很好你已经完成了重要的一步，下面，我们将带领您个性化自己的博客");</script>
+
+
 <!doctype html>
 <html class="no-js">
 <head>

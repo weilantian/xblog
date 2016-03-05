@@ -21,7 +21,7 @@ if ($_GET['sub']=="yes")
  */
 
 error_reporting(0);
-sec
+session_start();
 class config{
     const install = 'true',
         hostname='".$_GET['dbhost']."',//MYSQL地址
@@ -44,7 +44,6 @@ mysql_query(\"SET CHARACTER SET utf8_bin\");
 mysql_query(\"SET CHARACTER_SET_RESULTS='utf8_bin'\");";
             fwrite($myfile, $txt);
             fclose($myfile);
-            echo '<script>alert("很好你已经完成了重要的一步，下面，我们将带领您个性化自己的博客");</script>';
             header("Location:step_2.php");
         }
 
