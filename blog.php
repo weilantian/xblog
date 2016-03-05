@@ -3,10 +3,6 @@
 //判断是否安装完毕
 
 
-if (config::install=='f')
-{
-    header("Location:index.php?url=install");
-}
 $uid = $_SESSION['uid'];
 $text ='s';
 $username = "";

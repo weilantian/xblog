@@ -21,7 +21,7 @@ if ($_GET['sub']=="yes")
  */
 
 error_reporting(0);
-
+sec
 class config{
     const install = 'true',
         hostname='".$_GET['dbhost']."',//MYSQL地址

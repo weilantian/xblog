@@ -1,5 +1,6 @@
 <?php
 error_reporting(0);
+session_start();
 /**
  * Created by PhpStorm.
  * User: xiaol
