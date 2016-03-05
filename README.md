@@ -14,6 +14,6 @@ Xblog的安装流程
 ### 2、为Xblog创建一个数据库名字随意，编码utf-8_bin
     create database xblog
 ### 3、使用浏览器访问：
-    http://{生产环境目录}/{xblog目录}
+    http://{生产环境目录}/{xblog目录}/install
 ### 4、完成安装向导
 ### 5、开始使用
