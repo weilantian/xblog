@@ -15,7 +15,7 @@ if ($_GET['sub']=="yes")
         else
         {
             $myfile = fopen("../config.php", "w");
-            $txt = "<?php
+            $txt = '<?php
 /**
 熊孩子就不要随便改这个了233
  */
@@ -35,13 +35,23 @@ class config{
 \$con = mysql_connect(config::hostname,config::user,config::password);
 if (!\$con)
 {
-    die('发生了一些奇怪的错误: ' . mysql_error());
+    die("发生了一些奇怪的错误: " . mysql_error());
 }
 
 mysql_select_db(config::dbname, \$con);
 mysql_query(\"SET NAMES 'utf8_btn'\");
 mysql_query(\"SET CHARACTER SET utf8_bin\");
-mysql_query(\"SET CHARACTER_SET_RESULTS='utf8_bin'\");";
+mysql_query(\"SET CHARACTER_SET_RESULTS='utf8_bin'\");
+//防御SQL注入
+$magic_quotes = function_exists('get_magic_quotes_gpc') ? get_magic_quotes_gpc() : false;
+ ( !$magic_quotes && (filter($_GET, 'addslashes') && filter($_POST, 'addslashes') && filter($_COOKIE, 'addslashes') && filter($_FILES, 'addslashes') && filter($_REQUEST, 'addslashes')) );        
+ function filter(&$array, $function) 
+ {
+         if (!is_array($array)) Return $array = $function($array);
+         foreach ($array as $key => $value) 
+                 (is_array($value) && $array[$key] = filter($value, $function)) || $array[$key] = $function($value);
+         Return $array;
+ }';
             fwrite($myfile, $txt);
             fclose($myfile);
             header("Location:step_2.php");
